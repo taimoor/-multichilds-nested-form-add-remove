@@ -1,4 +1,3 @@
-<!-- _dishes_icon_fields.html.erb -->
 <div class="fields">
   <%= f.select :icon_id, Icon.all.collect {|icon| [icon.name, icon.id]} %>
   <%= link_to_remove_fields "remove", f %>
