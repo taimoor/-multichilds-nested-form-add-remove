@@ -1,0 +1,31 @@
+<%= form_for(@dish) do |f| %>
+  <% if @dish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+
+      <ul>
+      <% @dish.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+   <!-- Multi Fields generation in nested form Start  -->
+  <div class="dishes-icons">
+
+    <%= f.fields_for :dishes_icons do |dishes_icon|%>
+     <%= render "dishes_icon_fields", :f => dishes_icon, formats: [:html] %>
+    <%end%>
+
+    <p><%= link_to_add_fields "Add Dish Icon", f, :dishes_icons %></p>
+   <!-- Multi Fields generation in nested form End  --> 
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
