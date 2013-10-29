@@ -23,6 +23,7 @@ function add_fields(link, association, content) {
   var new_id = new Date().getTime() + getRandomInt(1, 5000);
   var regexp = new RegExp("new_" + association, "g")
   // $(link).parent().before(content.replace(regexp, new_id));
+  // ***** make "all_nested_fields" parent element class to make functionality work properly
   $(".all_nested_fields").append(content.replace(regexp, new_id));
 }
 
