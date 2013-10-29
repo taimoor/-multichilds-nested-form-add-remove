@@ -20,7 +20,13 @@ function remove_fields(link) {
 }
 
 function add_fields(link, association, content) {
-  var new_id = new Date().getTime();
+  var new_id = new Date().getTime() + getRandomInt(1, 5000);
   var regexp = new RegExp("new_" + association, "g")
-  $(link).parent().before(content.replace(regexp, new_id));
+  // $(link).parent().before(content.replace(regexp, new_id));
+  $(".all_nested_fields").append(content.replace(regexp, new_id));
 }
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+

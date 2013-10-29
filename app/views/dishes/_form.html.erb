@@ -15,14 +15,18 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <!-- Link to add Nested attributes -->
+  <p><%= link_to_add_fields "Add Dish Icon", f, :dishes_icons %></p>
+
    <!-- Multi Fields generation in nested form Start  -->
   <div class="dishes-icons">
-
-    <%= f.fields_for :dishes_icons do |dishes_icon|%>
-     <%= render "dishes_icon_fields", :f => dishes_icon, formats: [:html] %>
-    <%end%>
-
-    <p><%= link_to_add_fields "Add Dish Icon", f, :dishes_icons %></p>
+    <!-- All nested fields Loop and partial,  the div below with class named "all_nested_fields" will be used in js method add_fields -->
+    <div class="all_nested_fields" > 
+      <%= f.fields_for :dishes_icons do |dishes_icon|%>
+       <%= render "dishes_icon_fields", :f => dishes_icon, formats: [:html] %>
+      <%end%>
+    </div>
+    
    <!-- Multi Fields generation in nested form End  --> 
   </div>
   <div class="actions">
