@@ -3,7 +3,7 @@
 
 I've multiple childs to be added and removed in certain nested-form.
 
-1. Add these methods in ApplicationHelper
+0. Add these methods in ApplicationHelper
 
 module ApplicationHelper
 
